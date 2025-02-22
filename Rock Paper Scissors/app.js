@@ -1,10 +1,15 @@
-const playerDisplay = document.getElementById("player-display");
-const computerDisplay = document.getElementById("computer-display");
-const resultDisplay = document.getElementById("result-display");
-const choice = ["Rock", "Paper", "Scissors"];
+const playerDisplay = document.getElementById("playerDisplay");
+const computerDisplay = document.getElementById("computerDisplay");
+const resultDisplay = document.getElementById("resultDisplay");
+const playerScoreDisplay = document.getElementById("playerScoreDisplay");
+const computerScoreDisplay = document.getElementById("computerScoreDisplay");
+let playerScore = 0;
+let computerScore = 0;
+
+const choices = ["Rock", "Paper", "Scissors"];
 
 function playGame(playerChoice) {
-    const computerChoice = choice[Math.floor(Math.random() * 3)];
+    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
     let result = "";
 
     if (playerChoice === computerChoice) {
@@ -33,12 +38,21 @@ function playGame(playerChoice) {
     switch (result) {
         case "YOU WIN!":
             resultDisplay.classList.add("greenText");
+            playerScore++;
+            playerScoreDisplay.textContent = playerScore;
             break;
         case "YOU LOSE!":
             resultDisplay.classList.add("redText");
+            computerScore++;
+            computerScoreDisplay.textContent = computerScore;
             break;
         case "IT'S A TIE!":
             resultDisplay.classList.add("whiteText");
+            playerScore = 0;
+            computerScore = 0;
+
+            playerScoreDisplay.textContent = playerScore;
+            computerScoreDisplay.textContent = computerScore;
             break;
     }
 }
