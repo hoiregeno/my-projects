@@ -1,0 +1,93 @@
+:root {
+    --text-color: hsl(60, 100%, 60%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: min(3em, 7%);
+    background-color: hsl(200, 100%, 5%);
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1.title {
+    font-size: clamp(2.45rem, -0.175rem + 8.4vw, 3.5rem);
+    color: var(--text-color);
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#display {
+    font-size: clamp(2.5rem, 0rem + 8vw, 3.5rem);
+    font-family: monospace, sans-serif;
+    color: var(--text-color);
+    margin-bottom: 30px;
+}
+
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.controls button {
+    font-size: clamp(1.0625rem, -0.1875rem + 4vw, 1.5625rem);
+    font-weight: 600;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color .3s ease;
+}
+
+#start-btn {
+    background-color: hsl(120, 100%, 20%);
+}
+
+#stop-btn {
+    background-color: hsl(0, 100%, 40%);
+}
+
+#reset-btn {
+    background-color: hsl(240, 100%, 45%);
+}
+
+#start-btn:hover {
+    background-color: hsl(120, 100%, 26%);
+}
+
+#stop-btn:hover {
+    background-color: hsl(0, 100%, 45%);
+}
+
+#reset-btn:hover {
+    background-color: hsl(240, 100%, 50%);
+}
+
+.controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.controls button:focus {
+    outline: 3px solid hsl(60, 100%, 50%);
+    outline-offset: 3px;
+}

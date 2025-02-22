@@ -1,0 +1,40 @@
+:root {
+    --text-clr: hsl(60, 100%, 60%);
+    --text-shadow: rgba(0, 0, 0, .25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace, sans-serif;
+}
+
+body {
+    background-color: hsl(200, 100%, 5%);
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: min(2em, 7%);
+}
+
+.clock-title {
+    font-size: clamp(1.5rem, -6rem + 20vw, 4rem);
+    font-weight: 800;
+    text-align: center;
+    color: var(--text-clr);
+    text-shadow: 3px 3px 5px var(--text-shadow);
+    margin-bottom: 20px;
+}
+
+#clock-container {
+    font-size: clamp(2rem, -2.5rem + 12vw, 3.5rem);
+    font-weight: 700;
+    color: var(--text-clr);
+    text-shadow: 3px 3px 5px var(--text-shadow);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
