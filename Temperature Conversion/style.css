@@ -104,6 +104,11 @@ h1.title {
     color: hsla(258, 100%, 5%, 0.8);
 }
 
+#current-temp {
+    font-size: .8rem;
+    color: hsl(0, 100%, 60%);
+}
+
 .container #result-display {
     font-size: 20px;
     font-weight: 800;

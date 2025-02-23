@@ -1,5 +1,6 @@
 const tempInput = document.getElementById("temp");
 const resultDisplay = document.getElementById("result-display");
+const currentTemp = document.getElementById("current-temp");
 const toFahrenheit = document.getElementById("to-fahrenheit");
 const toCelsius = document.getElementById("to-celsius");
 
@@ -28,6 +29,7 @@ function convert() {
 function showResult(result) {
     let unit = toFahrenheit.checked ? "°F" : "°C";
 
+    currentTemp.textContent = `Current Temperature: ${tempInput.value}${unit}`;
     resultDisplay.style.display = "block";
     resultDisplay.textContent = `Result: ${result.toFixed(2)}${unit}`;
 
@@ -39,5 +41,6 @@ function showResult(result) {
 
 // Clear result when user starts typing a new temperature
 tempInput.addEventListener("input", () => {
+    currentTemp.style.display = "none";
     resultDisplay.style.display = "none";
 });
