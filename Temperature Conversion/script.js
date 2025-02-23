@@ -30,6 +30,7 @@ function showResult(result) {
     let unit = toFahrenheit.checked ? "°F" : "°C";
 
     currentTemp.textContent = `Current Temperature: ${tempInput.value}${unit}`;
+    currentTemp.style.display = "block";
     resultDisplay.style.display = "block";
     resultDisplay.textContent = `Result: ${result.toFixed(2)}${unit}`;
 
