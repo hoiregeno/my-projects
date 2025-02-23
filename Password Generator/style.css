@@ -16,14 +16,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background: linear-gradient(45deg, #101820, #7f7fff);
     padding: 40px 20px;
     min-height: 100vh;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, -0.5rem + 5.3333vw, 2.5rem);
     font-weight: 800;
+    text-align: center;
     color: var(--text-color);
     margin-bottom: 30px;
 }
@@ -38,7 +40,7 @@ h1 {
 }
 
 .input-box label {
-    font-size: 20px;
+    font-size: clamp(1rem, 0.5rem + 1.3333vw, 1.25rem);
     font-weight: 600;
     color: var(--text-color);
 }
@@ -60,8 +62,10 @@ h1 {
 
 .option-box {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    justify-content: center;
+    gap: 1.5rem;
 }
 
 .option-box .option-box-items {
@@ -71,12 +75,13 @@ h1 {
 }
 
 .option-box label {
-    font-size: 16px;
-    color: var(--text-color);
+    font-size: clamp(0.875rem, 0.625rem + 0.6667vw, 1rem);
+    font-weight: 600;
+    color: var(--color1);
 }
 
 #passwordForm button {
-    font-size: 20px;
+    font-size: clamp(1rem, 0.5rem + 1.3333vw, 1.25rem);
     font-weight: 700;
     background: linear-gradient(45deg, #101820, #a8a8ff);
     color: var(--text-color);
@@ -99,10 +104,19 @@ h1 {
 }
 
 h2 {
+    font-size: clamp(1rem, 0rem + 2.6667vw, 1.5rem);
     color: var(--text-color);
     margin-bottom: 20px;
 }
 
 #result {
+    font-size: clamp(1rem, 0.75rem + 0.6667vw, 1.125rem);
     color: var(--color1);
+}
+
+@media (max-width: 600px) {
+    .option-box {
+        flex-direction: column;
+        gap: .8rem;
+    }
 }
