@@ -3,16 +3,19 @@ const resultDisplay = document.getElementById("result-display");
 const currentTemp = document.getElementById("current-temp");
 const toFahrenheit = document.getElementById("to-fahrenheit");
 const toCelsius = document.getElementById("to-celsius");
+let saveData;
 
 function convert() {
     if (tempInput.value === "") {
-        window.alert("Please enter a temperature.");
-        return; // Stop execution if input is empty
+        resultDisplay.textContent = "Please enter a temperature.";
+        resultDisplay.style.display = "block";
+        return; // Stop execution if input is empty.
     }
 
     if (!toFahrenheit.checked && !toCelsius.checked) {
-        window.alert("Please select a conversion option.");
-        return; // Stop execution if no radio button is selected
+        resultDisplay.textContent = "Please select a conversion option.";
+        resultDisplay.style.display = "block";
+        return; // Stop execution if no radio button is selected.
     }
 
     let result = 0;
@@ -29,8 +32,8 @@ function convert() {
 function showResult(result) {
     let unit = toFahrenheit.checked ? "°F" : "°C";
 
-    currentTemp.textContent = `Current Temperature: ${tempInput.value}${unit}`;
     currentTemp.style.display = "block";
+    currentTemp.textContent = `You Entered: ${tempInput.value}${unit}`;
 
     resultDisplay.style.display = "block";
     resultDisplay.textContent = `Result: ${result.toFixed(2)}${unit}`;

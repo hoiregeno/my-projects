@@ -70,7 +70,8 @@ h1.title {
 
 .units {
     display: flex;
-    gap: 30px;
+    flex-direction: column;
+    gap: 20px;
     margin-top: 20px;
 }
 
@@ -106,7 +107,7 @@ h1.title {
 
 #current-temp {
     font-size: .8rem;
-    color: hsl(0, 100%, 60%);
+    color: var(--secondary-clr);
 }
 
 .container #result-display {
