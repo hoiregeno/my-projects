@@ -31,10 +31,6 @@ function generatePassword(length, includeLowercase, includeUppercase, includeNum
     allowChars += includeNumbers ? numberChars : "";
     allowChars += includeSymbols ? symbolChars : "";
 
-    if (length <= 0) {
-        return "(Password Length must be greater than 0.)";
-    }
-
     if (allowChars.length === 0) {
         return "(At least one character set must be selected.)";
     }
