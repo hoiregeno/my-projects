@@ -3,59 +3,58 @@ const resultDisplay = document.getElementById("result-display");
 const currentTemp = document.getElementById("current-temp");
 const toFahrenheit = document.getElementById("to-fahrenheit");
 const toCelsius = document.getElementById("to-celsius");
-let savedData;
 
 function convert() {
     if (tempInput.value === "") {
         resultDisplay.textContent = "Please enter a temperature.";
         resultDisplay.style.display = "block";
-        return; // Stop execution if input is empty.
+        return;
+    }
+
+    if (isNaN(tempInput.value)) {
+        resultDisplay.textContent = "Please enter a valid number.";
+        resultDisplay.style.display = "block";
+        return;
     }
 
     if (!toFahrenheit.checked && !toCelsius.checked) {
         resultDisplay.textContent = "Please select a conversion option.";
         resultDisplay.style.display = "block";
-        return; // Stop execution if no radio button is selected.
+        return;
     }
 
     let result = 0;
+    let unit = "";
 
     if (toFahrenheit.checked) {
         result = ((Number(tempInput.value) * 9) / 5) + 32;
-        saveResult(result);
+        unit = "°F";
     } else {
         result = (((Number(tempInput.value) - 32) * 5) / 9);
-        saveResult(result);
+        unit = "°C";
     }
 
-    showResult(result);
+    saveResult(result, unit);
+    showResult(result, unit);
 }
 
-function showResult(result) {
-    let unit = toFahrenheit.checked ? "°F" : "°C";
-
+function showResult(result, unit) {
     currentTemp.style.display = "block";
     currentTemp.textContent = `You Entered: ${tempInput.value}`;
 
     resultDisplay.style.display = "block";
     resultDisplay.textContent = `Result: ${result.toFixed(2)}${unit}`;
 
-    // Reset input and uncheck radio buttons after conversion
+    // Reset input only (keep radio selection)
     tempInput.value = "";
-    toFahrenheit.checked = false;
-    toCelsius.checked = false;
 }
 
-function showSavedData(result) {
-    let unit = toFahrenheit.checked ? "°F" : "°C";
+function showSavedData() {
+    let data = JSON.parse(localStorage.getItem("temp"));
+    if (!data) return;
 
     resultDisplay.style.display = "block";
-    resultDisplay.textContent = `Result: ${result.toFixed(2)}${unit}`;
-
-    // Reset input and uncheck radio buttons after conversion
-    tempInput.value = "";
-    toFahrenheit.checked = false;
-    toCelsius.checked = false;
+    resultDisplay.textContent = `Last Result: ${data.value.toFixed(2)}${data.unit}`;
 }
 
 // Clear result when user starts typing a new temperature
@@ -64,14 +63,8 @@ tempInput.addEventListener("input", () => {
     resultDisplay.style.display = "none";
 });
 
-function saveResult(result) {
-    savedData = localStorage.setItem("temp", result);
+function saveResult(result, unit) {
+    localStorage.setItem("temp", JSON.stringify({ value: result, unit }));
 }
 
-window.onload = function () {
-    let data = Number(localStorage.getItem("temp"));
-
-    if (data) {
-        showSavedData(data);
-    }
-}
+window.onload = showSavedData;
