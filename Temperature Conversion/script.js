@@ -34,7 +34,7 @@ function convert() {
         unit = "°C";
     }
 
-    saveResult(result, unit);
+    saveResult(result, unit, tempInput.value);  // Save both result and input temperature
     showResult(result, unit);
 }
 
@@ -55,6 +55,8 @@ function showSavedData() {
 
     resultDisplay.style.display = "block";
     resultDisplay.textContent = `Last Result: ${data.value.toFixed(2)}${data.unit}`;
+    currentTemp.style.display = "block";
+    currentTemp.textContent = `Last Temperature Entered: ${data.inputTemp}`;
 }
 
 // Clear result when user starts typing a new temperature
@@ -63,8 +65,8 @@ tempInput.addEventListener("input", () => {
     resultDisplay.style.display = "none";
 });
 
-function saveResult(result, unit) {
-    localStorage.setItem("temp", JSON.stringify({ value: result, unit }));
+function saveResult(result, unit, inputTemp) {
+    localStorage.setItem("temp", JSON.stringify({ value: result, unit, inputTemp }));
 }
 
 window.onload = showSavedData;
