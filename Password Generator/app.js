@@ -10,10 +10,10 @@ document.getElementById("passwordForm").addEventListener("submit", function (e) 
     const includeNumbers = document.getElementById("includeNumbers").checked;
     const includeSymbols = document.getElementById("includeSymbols").checked;
 
-    // Generate the password using the function
+    // Generate the password using the function.
     const password = generatePassword(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols);
 
-    // Display the generated password
+    // Display the generated password.
     document.getElementById("result").textContent = password;
 });
 
