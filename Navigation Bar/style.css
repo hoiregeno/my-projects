@@ -1,5 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --dark-clr: hsl(262, 35%, 10%);
+    --white-clr: hsl(0, 0%, 90%);
+    --yellow-clr: hsl(60, 100%, 60%);
+    --border-clr: hsla(0, 0%, 100%, .1);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--dark-clr);
+    min-height: 100vh;
+}
+
+svg {
+    width: 32px;
+    height: 32px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border-clr);
+}
+
+header a {
+    font-size: clamp(0.9375rem, 0.6875rem + 0.6667vw, 1.0625rem);
+    font-weight: 500;
+    color: var(--white-clr);
+}
+
+header button {
+    display: none;
+}
+
+header .nav-logo {
+    font-family: "Permanent Marker", sans-serif;
+    font-size: clamp(2rem, 1rem + 2.6667vw, 2.5rem);
+    font-weight: 600;
+    color: var(--yellow-clr);
+}
+
+nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: var(--dark-clr);
+}
+
+nav ul {
+    display: flex;
+    gap: 3rem;
+}
+
+nav a {
+    transition: color 150ms ease;
+}
+
+nav a:hover {
+    color: var(--yellow-clr);
+}
+
+@media (max-width: 545px) {
+
+    header button {
+        display: flex;
+        border: none;
+        outline: none;
+        fill: var(--yellow-clr);
+        background: none;
+        cursor: pointer;
+    }
+
+    #open-sidebar-btn {
+        padding: 1.5rem 0;
+
+    }
+
+    #close-sidebar-btn {
+        padding: 1.5rem 2rem;
+        margin-left: auto;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        border-left: 1px solid var(--border-clr);
+        width: min(300px, 100%);
+        align-items: flex-start;
+        transition: right .5s ease;
+    }
+
+    .show-sidebar {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
+    nav a {
+        display: flex;
+        padding: 1.5rem 2rem;
+        transition: background-color 150ms ease;
+    }
+
+    nav a:hover {
+        color: var(--white-clr);
+        background-color: var(--border-clr);
+    }
 }
