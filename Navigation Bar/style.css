@@ -78,6 +78,16 @@ nav a:hover {
     color: var(--yellow-clr);
 }
 
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    inset: 0;
+    background-color: hsla(0, 0%, 0%, 0.25);
+    display: none;
+}
+
 @media (max-width: 545px) {
 
     header button {
@@ -114,6 +124,10 @@ nav a:hover {
         right: 0;
     }
 
+    .show-sidebar~#overlay {
+        display: block;
+    }
+
     nav ul {
         flex-direction: column;
         gap: 0;
@@ -122,6 +136,7 @@ nav a:hover {
 
     nav a {
         display: flex;
+        font-size: 1rem;
         padding: 1.5rem 2rem;
         transition: background-color 150ms ease;
     }
