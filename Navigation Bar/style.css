@@ -48,7 +48,7 @@ header {
 
 header .nav-logo {
     font-family: "Permanent Marker", sans-serif;
-    font-size: clamp(2rem, 1rem + 2.6667vw, 2.5rem);
+    font-size: clamp(1.5rem, -0.5rem + 5.3333vw, 2.5rem);
     font-weight: 600;
     color: var(--yellow-clr);
     display: flex;
