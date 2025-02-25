@@ -63,6 +63,7 @@ header a {
 
 header button {
     display: none;
+    height: 100%;
 }
 
 nav {
