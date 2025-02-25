@@ -109,6 +109,30 @@ main h1 {
     color: var(--yellow-clr);
 }
 
+#top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    outline: none;
+    background-color: var(--white-clr);
+    fill: var(--dark-clr);
+    cursor: pointer;
+    border-radius: 50%;
+    padding: .5rem;
+    transition: background-color 300ms ease;
+    display: none;
+}
+
+#top-btn svg {
+    width: 32px;
+    height: 32px;
+}
+
+#top-btn:hover {
+    background-color: var(--yellow-clr);
+}
+
 @media (max-width: 545px) {
 
     header button {
