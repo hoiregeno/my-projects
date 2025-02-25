@@ -5,3 +5,6 @@ function toggleSidebar() {
     navbar.classList.toggle("show-sidebar");
 }
 
+navLinks.forEach(link => {
+    link.addEventListener("click", e => toggleSidebar());
+});
