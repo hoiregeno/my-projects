@@ -14,7 +14,7 @@ function closeSideBar() {
 }
 
 navLinks.forEach(link => {
-    link.addEventListener("click", e => toggleSidebar());
+    link.addEventListener("click", () => closeSideBar());
 });
 
 window.onscroll = function () {
