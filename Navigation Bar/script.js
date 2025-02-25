@@ -1,9 +1,16 @@
 const navbar = document.getElementById("navbar");
 const navLinks = document.querySelectorAll("#navbar a ");
+const openBtn = document.getElementById("open-sidebar-btn");
 const topBtn = document.getElementById("top-btn");
 
-function toggleSidebar() {
+function openSideBar() {
     navbar.classList.toggle("show-sidebar");
+    openBtn.setAttribute("aria-hidden", "false");
+}
+
+function closeSideBar() {
+    navbar.classList.toggle("show-sidebar");
+    openBtn.setAttribute("aria-hidden", "true");
 }
 
 navLinks.forEach(link => {

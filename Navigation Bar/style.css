@@ -63,7 +63,12 @@ header a {
 
 header button {
     display: none;
-    height: 100%;
+    border: none;
+    outline: none;
+    fill: var(--yellow-clr);
+    background: none;
+    cursor: pointer;
+    margin-left: auto;
 }
 
 nav {
@@ -79,9 +84,9 @@ nav ul {
 nav a {
     display: flex;
     align-items: center;
-    transition: color 150ms ease;
     padding-inline: 1.4rem;
     height: 100%;
+    transition: color .3s ease;
 }
 
 nav a:hover {
@@ -137,15 +142,8 @@ main h1 {
 }
 
 @media (max-width: 600px) {
-
     header button {
         display: flex;
-        border: none;
-        outline: none;
-        fill: var(--yellow-clr);
-        background: none;
-        cursor: pointer;
-        margin-left: auto;
     }
 
     #open-sidebar-btn {
@@ -153,7 +151,7 @@ main h1 {
     }
 
     #close-sidebar-btn {
-        padding: 1rem;
+        padding: 1rem 1.5rem;
     }
 
     nav {
