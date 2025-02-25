@@ -31,7 +31,11 @@ function closeSideBar() {
 }
 
 navLinks.forEach(link => {
-    link.addEventListener("click", () => closeSideBar());
+    link.addEventListener("click", () => {
+        if (media.matches) {
+            closeSideBar();
+        }
+    });
 });
 
 window.onscroll = function () {
