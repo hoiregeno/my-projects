@@ -109,7 +109,7 @@ main section {
     justify-content: center;
     min-height: 100vh;
     padding: var(--padding-value);
-    border-bottom: 1px solid var(--border-clr);
+    border-top: 1px solid var(--border-clr);
 }
 
 main h1 {
