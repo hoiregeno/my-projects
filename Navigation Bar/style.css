@@ -40,12 +40,19 @@ a {
 }
 
 header {
-    height: 70px;
+    display: flex;
+    padding-inline: min(2rem, 5%);
+    border-bottom: 1px solid var(--border-clr);
+    min-height: 60px;
+}
+
+header .nav-logo {
+    font-family: "Permanent Marker", sans-serif;
+    font-size: clamp(2rem, 1rem + 2.6667vw, 2.5rem);
+    font-weight: 600;
+    color: var(--yellow-clr);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 2rem;
-    border-bottom: 1px solid var(--border-clr);
 }
 
 header a {
@@ -58,27 +65,22 @@ header button {
     display: none;
 }
 
-header .nav-logo {
-    font-family: "Permanent Marker", sans-serif;
-    font-size: clamp(2rem, 1rem + 2.6667vw, 2.5rem);
-    font-weight: 600;
-    color: var(--yellow-clr);
-}
-
 nav {
-    height: 100%;
-    display: flex;
-    align-items: center;
+    margin-left: auto;
     background-color: var(--dark-clr);
 }
 
 nav ul {
+    height: 100%;
     display: flex;
-    gap: 3rem;
 }
 
 nav a {
+    display: flex;
+    align-items: center;
     transition: color 150ms ease;
+    padding-inline: 1.4rem;
+    height: 100%;
 }
 
 nav a:hover {
@@ -133,7 +135,7 @@ main h1 {
     background-color: var(--yellow-clr);
 }
 
-@media (max-width: 545px) {
+@media (max-width: 600px) {
 
     header button {
         display: flex;
@@ -142,16 +144,15 @@ main h1 {
         fill: var(--yellow-clr);
         background: none;
         cursor: pointer;
+        margin-left: auto;
     }
 
     #open-sidebar-btn {
-        padding: 1.5rem 0;
-
+        padding-block: 1rem;
     }
 
     #close-sidebar-btn {
-        padding: 1.5rem 2rem;
-        margin-left: auto;
+        padding: 1rem;
     }
 
     nav {
@@ -161,6 +162,7 @@ main h1 {
         z-index: 10;
         border-left: 1px solid var(--border-clr);
         width: min(300px, 100%);
+        height: 100vh;
         align-items: flex-start;
         transition: right .5s ease;
     }
