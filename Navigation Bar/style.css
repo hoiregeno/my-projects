@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
+    /* COLORS */
     --dark-clr: hsl(262, 35%, 10%);
     --white-clr: hsl(0, 0%, 90%);
     --yellow-clr: hsl(60, 100%, 60%);
     --border-clr: hsla(0, 0%, 100%, .1);
+    /* PADDING STYLE */
+    --padding-value: min(3rem, 7%);
 }
 
 * {
@@ -12,6 +15,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -86,6 +93,20 @@ nav a:hover {
     inset: 0;
     background-color: hsla(0, 0%, 0%, 0.25);
     display: none;
+}
+
+main section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: var(--padding-value);
+    border-bottom: 1px solid var(--border-clr);
+}
+
+main h1 {
+    font-size: clamp(2rem, 0rem + 5.3333vw, 3rem);
+    color: var(--yellow-clr);
 }
 
 @media (max-width: 545px) {
