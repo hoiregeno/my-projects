@@ -3,14 +3,31 @@ const navLinks = document.querySelectorAll("#navbar a ");
 const openBtn = document.getElementById("open-sidebar-btn");
 const topBtn = document.getElementById("top-btn");
 
+const media = window.matchMedia("(width < 600px)");
+
+media.addEventListener("change", e => updateNavbar(e));
+
+function updateNavbar(e) {
+    const isMobile = e.matches;
+
+    if (isMobile) {
+        navbar.setAttribute("inert", '');
+    }
+    else {
+        navbar.removeAttribute("inert");
+    }
+}
+
 function openSideBar() {
-    navbar.classList.toggle("show-sidebar");
+    navbar.classList.add("show-sidebar");
     openBtn.setAttribute("aria-hidden", "false");
+    navbar.removeAttribute("inert");
 }
 
 function closeSideBar() {
-    navbar.classList.toggle("show-sidebar");
+    navbar.classList.remove("show-sidebar");
     openBtn.setAttribute("aria-hidden", "true");
+    navbar.setAttribute("inert", '');
 }
 
 navLinks.forEach(link => {
