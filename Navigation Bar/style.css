@@ -241,6 +241,14 @@ main a {
     border-radius: 10px;
 }
 
+.project p {
+    text-align: center;
+}
+
+.project img {
+    border-radius: 2.5px;
+}
+
 #top-btn {
     position: fixed;
     bottom: 30px;
