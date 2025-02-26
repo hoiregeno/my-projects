@@ -117,7 +117,6 @@ main h1 {
 
 main p {
     font-size: clamp(1rem, 0.875rem + 0.3333vw, 1.0625rem);
-    max-width: 600px;
     color: var(--white-clr);
     line-height: 1.35rem;
 }
@@ -137,6 +136,11 @@ main p {
 
 #home p {
     text-align: center;
+    max-width: 600px;
+}
+
+#about p {
+    margin: 1rem 0;
 }
 
 #top-btn {
