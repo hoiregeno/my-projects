@@ -115,10 +115,11 @@ main h1 {
     color: var(--yellow-clr);
 }
 
-main p {
+main p,
+main a {
     font-size: clamp(1rem, 0.875rem + 0.3333vw, 1.0625rem);
     color: var(--white-clr);
-    line-height: 1.35rem;
+    line-height: 1.5rem;
 }
 
 #home {
@@ -139,8 +140,38 @@ main p {
     max-width: 600px;
 }
 
+#about {
+    display: flex;
+    align-items: center;
+}
+
+#about .left-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 600px);
+}
+
+.socials-wrapper {
+    display: flex;
+    align-items: center;
+    gap: min(1.5rem, 3rem);
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.socials-wrapper a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    fill: var(--white-clr);
+    border: 2px solid var(--white-clr);
+    padding: .5rem 1.5rem;
+    border-radius: 50px;
+    transition: fill, background-color .3s ease;
+}
+
 #about p {
-    margin: 1rem 0;
+    margin: 1rem 0 2rem;
 }
 
 #top-btn {
