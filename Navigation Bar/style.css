@@ -155,19 +155,32 @@ main a {
     display: flex;
     align-items: center;
     gap: min(1.5rem, 3rem);
-    flex-wrap: wrap;
-    flex-shrink: 0;
+
 }
 
 .socials-wrapper a {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     fill: var(--white-clr);
     border: 2px solid var(--white-clr);
-    padding: .5rem 1.5rem;
-    border-radius: 50px;
-    transition: fill, background-color .3s ease;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    padding: .3rem 1rem;
+}
+
+.socials-wrapper a:hover {
+    fill: var(--dark-clr);
+    color: var(--dark-clr);
+    background-color: var(--white-clr);
+    border: 2px solid transparent;
+}
+
+.socials-wrapper svg {
+    width: 32px;
+    height: 32px;
 }
 
 #about p {
@@ -247,5 +260,12 @@ main a {
     nav a:hover {
         color: var(--white-clr);
         background-color: var(--border-clr);
+    }
+
+    /* MAIN CONTENTS */
+    .socials-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .5rem;
     }
 }
