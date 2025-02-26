@@ -49,6 +49,17 @@ header {
     padding-inline: min(2rem, 5%);
     border-bottom: 1px solid var(--border-clr);
     min-height: 60px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 8;
+    width: 100%;
+    background-color: var(--dark-clr);
+    transition: box-shadow .3s ease;
+}
+
+.header-shadow {
+    box-shadow: 0 5px 5px hsla(0, 0%, 100%, .1);
 }
 
 header .nav-logo {
@@ -120,6 +131,10 @@ main h1 {
     color: var(--yellow-clr);
 }
 
+main h3 {
+    color: var(--yellow-clr);
+}
+
 main p,
 main a {
     font-size: clamp(1rem, 0.875rem + 0.3333vw, 1.0625rem);
@@ -134,6 +149,7 @@ main a {
 }
 
 #home h2 {
+    font-family: "Permanent Marker", sans-serif;
     font-size: clamp(2rem, 1rem + 2.6667vw, 2.5rem);
     font-weight: 800;
     text-align: center;
@@ -156,6 +172,7 @@ main a {
     align-items: center;
     justify-content: space-between;
     flex-shrink: 0;
+    flex-grow: 1;
     flex-wrap: wrap;
     gap: 2rem;
 }
@@ -163,11 +180,13 @@ main a {
 #about .left-wrapper {
     display: flex;
     flex-direction: column;
-    width: min(100%, 700px);
+    width: min(100%, 600px);
+    margin: 0 auto;
 }
 
 #about .right-wrapper {
     width: 400px;
+    margin: 0 auto;
 }
 
 .socials-wrapper {
@@ -199,6 +218,26 @@ main a {
 
 #about p {
     margin: 1rem 0 2rem;
+}
+
+#portfolio h1~p {
+    margin: 1rem 0 2rem;
+}
+
+#portfolio .wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+#portfolio .project {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 2;
+    border: 1px solid var(--border-clr);
+    overflow: hidden;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 #top-btn {

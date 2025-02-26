@@ -2,6 +2,7 @@ const navbar = document.getElementById("navbar");
 const navLinks = document.querySelectorAll("#navbar a");
 const openBtn = document.getElementById("open-sidebar-btn");
 const topBtn = document.getElementById("top-btn");
+const header = document.getElementById("header");
 const media = window.matchMedia("(width < 600px)");
 
 media.addEventListener("change", updateNavbar);
@@ -19,6 +20,12 @@ function toggleSidebar(show) {
 
 function handleScroll() {
     topBtn.style.display = (window.scrollY > 50) ? "flex" : "none";
+    if (window.scrollY > 10) {
+        header.classList.add("header-shadow");
+    }
+    else {
+        header.classList.remove("header-shadow");
+    }
 }
 
 navLinks.forEach(link => link.addEventListener("click", () => {
