@@ -47,7 +47,6 @@ img {
 header {
     display: flex;
     padding-inline: min(2rem, 5%);
-    border-bottom: 1px solid var(--border-clr);
     min-height: 60px;
     position: sticky;
     top: 0;
@@ -59,7 +58,7 @@ header {
 }
 
 .header-shadow {
-    box-shadow: 0 5px 5px hsla(0, 0%, 0%, .1);
+    box-shadow: 0 5px 5px hsla(60, 100%, 50%, 0.15);
 }
 
 header .nav-logo {
@@ -204,7 +203,7 @@ main a {
     justify-content: center;
     gap: 10px;
     fill: var(--white-clr);
-    border: 2px solid var(--white-clr);
+    border: 1px solid var(--border-clr);
     border-radius: 10px;
     transition: all 0.3s ease;
     padding: .3rem 1rem;
@@ -213,8 +212,8 @@ main a {
 .socials-wrapper a:hover {
     fill: var(--dark-clr);
     color: var(--dark-clr);
-    background-color: var(--white-clr);
-    border: 2px solid transparent;
+    background-color: var(--yellow-clr);
+    border: 1px solid transparent;
 }
 
 #about p {
