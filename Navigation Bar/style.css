@@ -55,11 +55,11 @@ header {
     z-index: 8;
     width: 100%;
     background-color: var(--dark-clr);
-    transition: box-shadow .3s ease;
+    transition: box-shadow 150ms ease;
 }
 
 .header-shadow {
-    box-shadow: 0 5px 5px hsla(0, 0%, 100%, .1);
+    box-shadow: 0 5px 5px hsla(0, 0%, 0%, .1);
 }
 
 header .nav-logo {
@@ -132,6 +132,7 @@ main h1 {
 }
 
 main h3 {
+    text-align: center;
     color: var(--yellow-clr);
 }
 
@@ -233,7 +234,7 @@ main a {
 #portfolio .project {
     display: grid;
     grid-template-rows: subgrid;
-    grid-row: span 2;
+    grid-row: span 3;
     border: 1px solid var(--border-clr);
     overflow: hidden;
     padding: 20px;
