@@ -120,7 +120,7 @@ main h1 {
 #top-btn {
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 40px;
     border: none;
     outline: none;
     background-color: var(--white-clr);
