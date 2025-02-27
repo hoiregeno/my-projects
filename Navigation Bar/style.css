@@ -277,24 +277,24 @@ main input {
 
 #contact {
     min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #contact .input-box {
     position: relative;
     width: 100%;
-    border: 2px solid var(--border-clr);
+    border: 1px solid var(--border-clr);
     border-radius: 10px;
     display: flex;
     align-items: center;
     transition: border 150ms ease;
 }
 
-#contact .input-box:hover {
-    border: 2px solid var(--white-clr);
-}
-
+#contact .input-box:hover,
 #contact .input-box:focus-within {
-    border: 2px solid var(--white-clr);
+    border: 1px solid var(--white-clr);
 }
 
 #contact .input-box svg {
