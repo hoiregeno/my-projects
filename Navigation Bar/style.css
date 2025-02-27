@@ -49,16 +49,7 @@ header {
     padding-inline: min(2rem, 5%);
     min-height: 60px;
     position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 8;
-    width: 100%;
     background-color: var(--dark-clr);
-    transition: box-shadow 150ms ease;
-}
-
-.header-shadow {
-    box-shadow: 0 5px 5px hsla(60, 100%, 50%, 0.15);
 }
 
 header .nav-logo {

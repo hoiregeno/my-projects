@@ -20,12 +20,6 @@ function toggleSidebar(show) {
 
 function handleScroll() {
     topBtn.style.display = (window.scrollY > 50) ? "flex" : "none";
-    if (window.scrollY > 10) {
-        header.classList.add("header-shadow");
-    }
-    else {
-        header.classList.remove("header-shadow");
-    }
 }
 
 navLinks.forEach(link => link.addEventListener("click", () => {
