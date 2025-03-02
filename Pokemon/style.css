@@ -68,6 +68,8 @@ h1 {
 }
 
 .wrapper #message{
+    font-size: 17px;
+    font-weight: 800;
     text-align: center;
 }
 
