@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -13,9 +14,9 @@
         <h1>Pokemon Sprites</h1>
         <div class="input-box">
             <input type="text" id="pokemon-name" placeholder="Enter pokemon name">
-            <button onclick="fetchData()">Get Pokemon</button>
+            <button onclick="fetchData()">Find</button>
         </div>
-
+        <p id="message" style="display: none;"></p>
         <img id="pokemon-sprite" style="display: none;">
     </div>
 </body>
