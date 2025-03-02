@@ -1,33 +1,35 @@
-
 async function fetchData() {
-    const pokemonName = document.getElementById("pokemon-name");
+    const pokemonInput = document.getElementById("pokemon-name");
+    const pokemonName = pokemonInput.value.trim(); // Trim whitespace
 
-    if (pokemonName.value === "") {
-        window.alert("Please enter something!");
+    if (!pokemonName) {
+        return alert("Please enter something!");
     }
-    else {
-        try {
-            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.value.toLowerCase()}`);
 
-            if (!response.ok) {
-                throw new Error("Could not find pokemon!");
-            }
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`);
 
-            const data = await response.json();
-            const pokemonSprite = data.sprites.front_default;
-
-            const message = document.getElementById("message");
-            message.textContent = (pokemonName.value).charAt(0).toUpperCase() + (pokemonName.value).slice(1);
-            message.style.display = "block";
-
-            const pokemonImg = document.getElementById("pokemon-sprite");
-            pokemonImg.src = pokemonSprite;
-            pokemonImg.style.display = "block";
-
-            pokemonName.value = ""; // Reset user input. 
+        if (!response.ok) {
+            throw new Error("Could not find Pokémon!");
         }
-        catch (error) {
-            console.error(error);
-        }
+
+        const data = await response.json();
+        const pokemonSprite = data.sprites.front_default;
+
+        // Capitalize first letter correctly
+        const formattedName = pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1).toLowerCase();
+
+        // Update UI
+        document.getElementById("message").textContent = formattedName;
+        document.getElementById("message").style.display = "block";
+
+        const pokemonImg = document.getElementById("pokemon-sprite");
+        pokemonImg.src = pokemonSprite;
+        pokemonImg.style.display = "block";
+
+        pokemonInput.value = ""; // Clear input field
+    } catch (error) {
+        alert(error.message); // Inform user when Pokémon is not found
+        console.error(error);
     }
 }
