@@ -3,6 +3,8 @@ const form = document.getElementById("input-box");
 async function fetchSprite() {
     const pokemonNameDisplay = document.getElementById("pokemon-name-display");
     const pokemonName = document.getElementById("pokemon-name");
+    const pokemonTypeDisplay = document.getElementById("pokemon-type");
+    const pokemonAbilitiesDisplay = document.getElementById("pokemon-abilities");
 
     try {
         if (!pokemonName.value.trim()) {
@@ -28,6 +30,16 @@ async function fetchSprite() {
         imgElement.src = pokemonSprite;
         imgElement.alt = `Sprite of ${data.name}`;
         imgElement.style.display = "block";
+
+        // DISPLAY POKEMON TYPE
+        const types = data.types.map(typeInfo => typeInfo.type.name).join(", ");
+        pokemonTypeDisplay.textContent = `Type: ${types}`;
+        pokemonTypeDisplay.style.display = "block";
+
+        // DISPLAY POKEMON ABILITIES
+        const abilities = data.abilities.map(abilityInfo => abilityInfo.ability.name).join(", ");
+        pokemonAbilitiesDisplay.textContent = `Abilities: ${abilities}`;
+        pokemonAbilitiesDisplay.style.display = "block";
 
         pokemonName.value = ""; // Reset user input.
     }
