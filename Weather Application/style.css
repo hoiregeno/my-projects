@@ -108,18 +108,12 @@ body{
 }
 
 .wrapper .temp-display{
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
+    margin-bottom: 1rem;
 }
 
 .wrapper .weather-emoji{
     font-size: 5rem;
     margin-bottom: 0;
-}
-
-.time-style{
-    font-family: monospace;
-    font-size: var(--text-size);
-    font-weight: 800;
-    margin-bottom: 2rem;
 }
