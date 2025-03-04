@@ -75,14 +75,23 @@ function displayWeatherInfo(data) {
 
 // Get corresponding weather emoji based on weather ID
 function getWeatherEmoji(weatherId) {
-    if (weatherId >= 200 && weatherId < 300) return "⛈️"; // Thunderstorm
-    if (weatherId >= 300 && weatherId < 400) return "🌦️"; // Drizzle
-    if (weatherId >= 500 && weatherId < 600) return "🌧️"; // Rain
-    if (weatherId >= 600 && weatherId < 700) return "❄️"; // Snow
-    if (weatherId >= 700 && weatherId < 800) return "🌫️"; // Atmosphere (Fog, Mist, etc.)
-    if (weatherId === 800) return "☀️"; // Clear sky
-    if (weatherId >= 801 && weatherId < 810) return "☁️"; // Clouds
-    return "❓"; // Unknown weather
+    switch (true) {
+        case (weatherId >= 200 && weatherId < 300):
+            return "⛈️"; // Thunderstorm
+        case (weatherId >= 300 && weatherId < 400):
+            return "🌦️"; // Drizzle
+        case (weatherId >= 500 && weatherId < 600):
+            return "🌧️"; // Rain
+        case (weatherId >= 600 && weatherId < 700):
+            return "❄️"; // Snow
+        case (weatherId >= 700 && weatherId < 800):
+            return "🌫️"; // Atmosphere (Fog, Mist, etc.)
+        case (weatherId === 800): return "☀️"; // Clear sky
+        case (weatherId >= 801 && weatherId < 810):
+            return "☁️"; // Clouds
+        default:
+            return "❓"; // Unknown weather
+    }
 }
 
 // Display error or info messages
