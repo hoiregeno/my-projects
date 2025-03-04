@@ -10,7 +10,18 @@
 </head>
 
 <body>
+    <form class="weather-form">
+        <input type="text" id="city-input" placeholder="Enter city">
+        <button type="submit" onclick="fetchWeather()">Get Weather</button>
+    </form>
 
+    <div class="wrapper">
+        <h1 class="city-display">Miami</h1>
+        <p class="temp-display">28°C</p>
+        <p class="humidity-display">25%</p>
+        <p class="desc-display">Cloudy</p>
+        <p class="weather-emoji">☁️</p>
+    </div>
 </body>
 
 </html>
