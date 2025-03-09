@@ -101,8 +101,10 @@ h1{
 .card .city-display{
     font-size: var(--text-size-l);
     color: var(--dark-clr);
+    text-align: center;
+    line-height: 2.3rem;
     font-weight: 800;
-    margin-bottom: var(--margin-val);
+    margin-bottom: 2rem;
 }
 
 .card .temp-display{
@@ -139,7 +141,7 @@ h1{
 
 .card .error-display{
     font-size: var(--text-size-sm);
-    font-weight: 800;
+    font-weight: 700;
     text-align: center;
     color: var(--dark-clr);
 }
