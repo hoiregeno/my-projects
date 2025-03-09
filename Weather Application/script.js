@@ -28,13 +28,15 @@ async function getWeatherData(city) {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
 
     if (!response.ok) {
-        throw new Error("Could not locate city");
+        throw new Error(`Could not find ${cityInput.value}.`);
     }
 
     return await response.json();
 }
 
 function displayWeatherInfo(data) {
+    console.log(data);
+
     const {
         name: city,
         main: { temp, feels_like, humidity },
