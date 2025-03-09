@@ -35,17 +35,67 @@ async function getWeatherData(city) {
 }
 
 function displayWeatherInfo(data) {
-    console.log(data);
-
     const {
         name: city,
-        main: { temp, humidity },
-
+        main: { temp, feels_like, humidity },
+        sys: { country },
+        weather: [{ id, description }]
     } = data;
+
+    const cityDisplay = document.createElement("h2");
+    const tempDisplay = document.createElement("p");
+    const feelsLikeDisplay = document.createElement("p");
+    const humidityDisplay = document.createElement("p");
+    const descDisplay = document.createElement("p");
+    const weatherEmoji = document.createElement("p");
+
+    card.textContent = "";
+
+    cityDisplay.textContent = `${city}, ${country}`;
+    cityDisplay.classList.add("city-display");
+
+    tempDisplay.textContent = `${(temp - 273.15).toFixed(2)}°C`;
+    tempDisplay.classList.add("temp-display");
+
+    feelsLikeDisplay.textContent = `Feels Like: ${(feels_like - 273.15).toFixed(2)}°C`;
+    feelsLikeDisplay.classList.add("feels-temp-display");
+
+    humidityDisplay.textContent = `Humidity: ${humidity}%`;
+    humidityDisplay.classList.add("humidity-display");
+
+    descDisplay.textContent = description;
+    descDisplay.classList.add("desc-display");
+
+    weatherEmoji.textContent = getWeatherEmoji(id);
+    weatherEmoji.classList.add("weather-emoji");
+
+    card.appendChild(cityDisplay);
+    card.appendChild(tempDisplay);
+    card.appendChild(feelsLikeDisplay);
+    card.appendChild(humidityDisplay);
+    card.appendChild(descDisplay);
+    card.appendChild(weatherEmoji);
+
+    card.style.display = "flex";
 }
 
 function getWeatherEmoji(weatherId) {
-
+    switch (true) {
+        case (weatherId >= 200 && weatherId < 300):
+            return "⛈️";
+        case (weatherId >= 300 && weatherId < 500):
+            return "🌦️";
+        case (weatherId >= 500 && weatherId < 600):
+            return "🌧️";
+        case (weatherId >= 600 && weatherId < 700):
+            return "🌨️";
+        case (weatherId >= 700 && weatherId < 800):
+            return "🌫️";
+        case (weatherId === 800):
+            return "☀️";
+        case (weatherId >= 800 && weatherId < 805):
+            return "☁️";
+    }
 }
 
 function displayError(message) {
