@@ -85,7 +85,7 @@ h1{
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
-    padding-block: 2rem;
+    padding: 2rem;
     background-color: var(--yellow-clr);
     border-radius: 5px;
     width: min(100%, 300px);
@@ -120,4 +120,11 @@ h1{
 
 .card .weather-emoji{
     font-size: 5rem;
+}
+
+.card .error-display{
+    font-size: var(--text-size-sm);
+    font-weight: 800;
+    text-align: center;
+    color: var(--dark-clr);
 }
