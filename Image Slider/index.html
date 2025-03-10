@@ -6,29 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Slider</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
-    <div class="slider" aria-label="Image Slider Container">
+    <div class="wrapper">
         <div class="slides">
-            <img class="slide" src="images/puppy.jpg" loading="lazy" alt="Black and White puppy with hat and scarf.">
-            <img class="slide" src="images/cats.jpg" loading="lazy" alt="Two Cats sleeping in bed.">
-            <img class="slide" src="images/bird.jpg" loading="lazy" alt="A parrot with blurred background.">
+            <img src="images/bird.jpg" alt="picture of colorful bird">
+            <img src="images/cats.jpg" alt="picture of two cats sleeping">
+            <img src="images/puppy.jpg" alt="picture of cute dog with a hat laying down">
         </div>
-
-        <button id="prev-button" onclick="prevSlide()" aria-label="previous image">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#e8eaed">
-                <path d="m287-446.67 240 240L480-160 160-480l320-320 47 46.67-240 240h513v66.66H287Z" />
-            </svg>
-        </button>
-
-        <button id="next-button" onclick="nextSlide()" aria-label="next image">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#e8eaed">
-                <path d="M673-446.67H160v-66.66h513l-240-240L480-800l320 320-320 320-47-46.67 240-240Z" />
-            </svg>
-        </button>
+        <button id="prevButton" onclick="prevSlide()">&#10094;</button>
+        <button id="nextButton" onclick="nextSlide()">&#10095;</button>
     </div>
 
 </body>
