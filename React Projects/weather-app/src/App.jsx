@@ -1,8 +1,8 @@
-
+import WeatherApp from './WeatherApp.jsx'
 
 function App() {
   return (
-    <></>
+    <WeatherApp />
   )
 }
 
