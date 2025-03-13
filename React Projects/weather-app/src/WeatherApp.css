@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
+
+:root{
+    --dark-clr: hsl(200, 100%, 5%);
+    --white-clr: hsl(0, 0%, 90%);
+    --yellow-clr: hsl(60, 100%, 60%);
+    --white-transp-clr: hsla(0, 0%, 100%, 0.15);
+    /* FONT SIZES */
+    --text-size-sm: clamp(1rem, 0.875rem + 0.4vw, 1.1rem);
+    --text-size-l: clamp(1.5rem, 0.25rem + 4vw, 2.5rem);
+    /* MARGIN */
+    --margin-val: .5rem;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--dark-clr);
+    padding: min(2rem, 5%);
+    min-height: 100vh;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    font-size: var(--text-size-l);
+    font-weight: 800;
+    color: var(--yellow-clr);
+    margin-bottom: 1rem;
+}
+
+.weather-form{
+    display: flex;
+    justify-content: space-between;
+    width: max(20%, 300px);
+    background-color: var(--white-transp-clr);
+    border-radius: 5px;
+}
+
+.weather-form input{
+    flex-grow: 1;
+    font-size: var(--text-size-sm);
+    background: none;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid transparent;
+    outline: none;
+    color: var(--white-clr);
+    padding: .5rem 1rem;
+}
+
+.weather-form input:focus{
+    border: 1px solid var(--white-clr);
+}
+
+.weather-form input::placeholder{
+    color: var(--white-clr);
+}
+
+.weather-form button[type="submit"]{
+    display: flex;
+    align-items: center;
+    padding-inline: .5rem;
+    border: 1px solid transparent;
+    border-radius: 0 5px 5px 0;
+    background-color: var(--white-clr);
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+.weather-form button[type="submit"] svg{
+    fill: var(--dark-clr);
+    width: 28px;
+}
+
+.weather-form button[type="submit"]:hover{
+    background-color: hsl(0, 0%, 100%);
+}
+
+.card{
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: var(--yellow-clr);
+    border-radius: 5px;
+    min-width: 350px;
+    box-shadow: 0 0 15px hsla(60, 100%, 60%, 0.8);
+}
+
+.card .city-display{
+    font-size: var(--text-size-l);
+    color: var(--dark-clr);
+    text-align: center;
+    line-height: 2.3rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+.card .temp-display{
+    font-size: var(--text-size-l);
+    font-weight: 700;
+    color: var(--dark-clr);
+    margin-bottom: var(--margin-val);
+}
+
+.card .feels-temp-display{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark-clr);
+    margin-bottom: var(--margin-val);
+}
+
+.card .humidity-display{
+    font-size: var(--text-size-sm);
+    font-weight: 700;
+    color: var(--dark-clr);
+}
+
+.card .desc-display{
+    font-size: var(--text-size-sm);
+    font-weight: 700;
+    text-transform: capitalize;
+    color: var(--dark-clr);
+    margin: var(--margin-val) 0;
+}
+
+.card .weather-emoji{
+    font-size: 5rem;
+}
+
+.error-display{
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--dark-clr);
+    margin-top: 2rem;
+    background-color: var(--yellow-clr);
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px hsla(60, 100%, 60%, 0.8);
+}
