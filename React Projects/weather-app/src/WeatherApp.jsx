@@ -13,7 +13,7 @@ function WeatherApp() {
     // ----- Helper Functions -----
 
     // Fetch weather data from OpenWeatherMap
-    async function getWeatherData(city) {
+    const getWeatherData = async (city) => {
         try {
             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
 
@@ -27,22 +27,10 @@ function WeatherApp() {
         }
     }
 
-    // Get a weather emoji based on the weather condition ID
-    function getWeatherEmoji(id) {
-        if (id >= 200 && id < 300) return "⛈️"; // Thunderstorm
-        if (id >= 300 && id < 400) return "🌧️"; // Drizzle
-        if (id >= 500 && id < 600) return "🌦️"; // Rain
-        if (id >= 600 && id < 700) return "❄️"; // Snow
-        if (id >= 700 && id < 800) return "🌫️"; // Fog or mist
-        if (id === 800) return "☀️"; // Clear sky
-        if (id > 800) return "☁️"; // Clouds
-        return "❓"; // Unknown condition
-    }
-
     // ----- Event Handler -----
 
     // Handle the form submission
-    async function handleSubmit(event) {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         if (!city) {
@@ -61,6 +49,18 @@ function WeatherApp() {
         }
 
         setCity("");
+    }
+
+    // Get a weather emoji based on the weather condition ID
+    const getWeatherEmoji = (id) => {
+        if (id >= 200 && id < 300) return "⛈️"; // Thunderstorm
+        if (id >= 300 && id < 400) return "🌧️"; // Drizzle
+        if (id >= 500 && id < 600) return "🌦️"; // Rain
+        if (id >= 600 && id < 700) return "❄️"; // Snow
+        if (id >= 700 && id < 800) return "🌫️"; // Fog or mist
+        if (id === 800) return "☀️"; // Clear sky
+        if (id > 800) return "☁️"; // Clouds
+        return "❓"; // Unknown condition
     }
 
     // ----- Main Component Return -----
