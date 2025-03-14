@@ -10,12 +10,12 @@ function WeatherApp() {
 
     async function getWeatherData(city) {
         try {
-            const response = await fetch(
-                `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
-            );
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
+
             if (!response.ok) {
                 throw new Error(`Could not locate ${city}.`);
             }
+
             return await response.json();
         } catch (error) {
             throw error;
@@ -57,12 +57,9 @@ function WeatherApp() {
     return (
         <div className="container">
             <h1>Weather App</h1>
+
             <form className="weather-form" onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Enter city"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
+                <input type="text" placeholder="Enter city" value={city} onChange={(event) => setCity(event.target.value)}
                 />
                 <button type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -70,7 +67,9 @@ function WeatherApp() {
                     </svg>
                 </button>
             </form>
+
             {error && <p className="error-display">{error}</p>}
+
             {weather && (
                 <div className="card">
                     <h2 className="city-display">{weather.name}, {weather.sys.country}</h2>
