@@ -37,6 +37,7 @@ h1{
 
 .weather-form input[type="text"]{
     font-size: 1.1rem;
+    color: var(--yellow-clr);
     padding: .5rem 1rem;
     border-radius: 5px 0 0 5px;
     border: 2px solid var(--yellow-clr);
