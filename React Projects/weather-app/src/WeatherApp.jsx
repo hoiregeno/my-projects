@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./WeatherApp.css";
 
-const WeatherApp = () => {
+function WeatherApp() {
     const [city, setCity] = useState("");
     const [weather, setWeather] = useState(null);
     const [error, setError] = useState("");
     const apiKey = import.meta.env.VITE_API_KEY;
 
-    const getWeatherData = async (city) => {
+    async function getWeatherData(city) {
         try {
             const response = await fetch(
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
@@ -19,15 +19,17 @@ const WeatherApp = () => {
         } catch (error) {
             throw error;
         }
-    };
+    }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    async function handleSubmit(event) {
+        event.preventDefault();
+
         if (!city) {
             setError("Please enter a city name.");
             setWeather(null);
             return;
         }
+
         try {
             const data = await getWeatherData(city);
             setWeather(data);
@@ -36,10 +38,11 @@ const WeatherApp = () => {
             setError(error.message);
             setWeather(null);
         }
-        setCity("");
-    };
 
-    const getWeatherEmoji = (id) => {
+        setCity("");
+    }
+
+    function getWeatherEmoji(id) {
         if (id >= 200 && id < 300) return "⛈️";
         if (id >= 300 && id < 400) return "🌧️";
         if (id >= 500 && id < 600) return "🌦️";
@@ -48,7 +51,7 @@ const WeatherApp = () => {
         if (id === 800) return "☀️";
         if (id > 800) return "☁️";
         return "❓";
-    };
+    }
 
     return (
         <div className="container">
@@ -79,6 +82,6 @@ const WeatherApp = () => {
             )}
         </div>
     );
-};
+}
 
 export default WeatherApp;
