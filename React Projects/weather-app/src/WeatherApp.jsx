@@ -15,12 +15,12 @@ function WeatherApp() {
     // Fetch weather data from OpenWeatherMap
     async function getWeatherData(city) {
         try {
-            const response = await fetch(
-                `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
-            );
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
+
             if (!response.ok) {
                 throw new Error(`Could not locate ${city}.`);
             }
+
             return await response.json();
         } catch (error) {
             throw error;
@@ -64,7 +64,6 @@ function WeatherApp() {
     }
 
     // ----- Main Component Return -----
-
     return (
         <div className="container">
             <h1>Weather App</h1>
