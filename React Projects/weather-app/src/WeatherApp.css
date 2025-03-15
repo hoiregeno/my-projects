@@ -1,103 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
+
 :root{
-    --yellow-clr: hsl(60, 100%, 70%);
-    --dark-blue-clr: hsl(200, 100%, 5%);
+    --dark-clr: hsl(200, 100%, 5%);
+    --white-clr: hsl(0, 0%, 90%);
+    --yellow-clr: hsl(60, 100%, 60%);
+    --white-transp-clr: hsla(0, 0%, 100%, 0.15);
+    /* FONT SIZES */
+    --text-size-sm: clamp(1rem, 0.875rem + 0.4vw, 1.1rem);
+    --text-size-l: clamp(1.5rem, 0.25rem + 4vw, 2.5rem);
+    /* MARGIN */
+    --margin-val: .5rem;
 }
 
-*{
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    background-color: var(--dark-blue-clr);
-    padding: min(2rem, 7%);
-}
-
-.container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    background-color: var(--dark-clr);
+    padding: min(2rem, 5%);
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1{
-    font-size: 2.5rem;
+    font-size: var(--text-size-l);
     font-weight: 800;
     color: var(--yellow-clr);
+    margin-bottom: 1rem;
 }
 
 .weather-form{
-    background-color: hsla(60, 100%, 70%, 0.1);
+    display: flex;
+    justify-content: space-between;
+    width: max(20%, 300px);
+    background-color: var(--white-transp-clr);
+    border-radius: 5px;
 }
 
-.weather-form input[type="text"]{
-    font-size: 1.1rem;
-    color: var(--yellow-clr);
-    padding: .5rem 1rem;
-    border-radius: 5px 0 0 5px;
-    border: 2px solid var(--yellow-clr);
-    outline: none;
+.weather-form input{
+    flex-grow: 1;
+    font-size: var(--text-size-sm);
     background: none;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid transparent;
+    outline: none;
+    color: var(--white-clr);
+    padding: .5rem 1rem;
 }
 
-.weather-form input[type="text"]::placeholder{
-    color: var(--yellow-clr);
+.weather-form input:focus{
+    border: 1px solid var(--white-clr);
+}
+
+.weather-form input::placeholder{
+    color: var(--white-clr);
 }
 
 .weather-form button[type="submit"]{
-    font-size: 1.1rem;
-    font-weight: 600;
-    border: 2px solid transparent;
-    outline: none;
-    padding: .5rem 1rem;
-    background-color: var(--yellow-clr);
+    display: flex;
+    align-items: center;
+    padding-inline: .5rem;
+    font-size: var(--text-size-sm);
+    font-weight: 700;
+    color: var(--dark-clr);
+    border: 1px solid transparent;
     border-radius: 0 5px 5px 0;
+    background-color: var(--white-clr);
     cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+.weather-form button[type="submit"] svg{
+    fill: var(--dark-clr);
+    width: 28px;
+}
+
+.weather-form button[type="submit"]:hover{
+    background-color: hsl(0, 0%, 100%);
 }
 
 .card{
-    display: none;
+    flex-shrink: 0;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--yellow-clr);
+    justify-content: center;
+    margin-top: 2rem;
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 5px 5px hsla(60, 100%, 70%, 0.1);
+    background-color: var(--yellow-clr);
+    border-radius: 5px;
+    min-width: 350px;
+    box-shadow: 0 0 15px hsla(60, 100%, 60%, 0.8);
 }
 
 .card .city-display{
-    font-size: 2.5rem;
+    font-size: var(--text-size-l);
+    color: var(--dark-clr);
+    text-align: center;
+    line-height: 2.3rem;
     font-weight: 800;
-    color: var(--dark-blue-clr);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .card .temp-display{
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--dark-blue-clr);
-    margin-bottom: 1.5rem;
+    font-size: var(--text-size-l);
+    font-weight: 700;
+    color: var(--dark-clr);
+    margin-bottom: var(--margin-val);
+}
+
+.card .feels-temp-display{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark-clr);
+    margin-bottom: var(--margin-val);
 }
 
 .card .humidity-display{
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--dark-blue-clr);
-    margin-bottom: .5rem;
+    font-size: var(--text-size-sm);
+    font-weight: 700;
+    color: var(--dark-clr);
 }
 
 .card .desc-display{
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--dark-blue-clr);
-    margin-bottom: 1rem;
+    font-size: var(--text-size-sm);
+    font-weight: 700;
+    text-transform: capitalize;
+    color: var(--dark-clr);
+    margin-top: var(--margin-val);
 }
 
 .card .weather-emoji{
-    font-size: 3.5rem;
+    font-size: 5rem;
+}
+
+.error-display {
+    font-size: var(--text-size-sm);
+    font-weight: 700;
+    text-align: center;
+    color: var(--dark-clr);
+    background-color: var(--yellow-clr);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin-top: 2rem;
+    box-shadow: 0 0 15px hsla(60, 100%, 60%, 0.8);
 }
