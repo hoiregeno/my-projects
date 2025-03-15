@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
-import './WeatherApp.css'
+import React, { useState } from 'react';
+import './WeatherApp.css';
 
 function WeatherApp() {
-    // State to store city name, weather data and error messages.
     const [city, setCity] = useState("");
-    const [weather, setWeather] = useState(null);
     const [error, setError] = useState("");
+    const [weather, setWeather] = useState(null);
 
     const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -37,34 +36,57 @@ function WeatherApp() {
             const data = await getWeatherData(city);
             setWeather(data);
             setError("");
+
+            console.log(data);
         }
         catch (error) {
             setError(error.message);
             setWeather(null);
         }
+
+        setCity("");
     }
 
     const getWeatherEmoji = (weatherId) => {
-
+        if (weatherId >= 200 && weatherId < 300) return "⛈️";
+        if (weatherId >= 300 && weatherId < 500) return "🌦️";
+        if (weatherId >= 500 && weatherId < 600) return "🌧️";
+        if (weatherId >= 600 && weatherId < 700) return "🌨️";
+        if (weatherId >= 700 && weatherId < 800) return "🌫️";
+        if (weatherId === 800) return "☀️";
+        if (weatherId >= 800 && weatherId < 805) return "☁️";
     }
 
     return (
         <div className="container">
             <h1>Weather App</h1>
+
             <form className="weather-form" onSubmit={handleSubmit}>
-                <input type="text" placeholder="Enter city" value={city} onChange={event => setCity(event.target.value)} />
+                <input
+                    type="text"
+                    placeholder="Enter a city"
+                    value={city}
+                    onChange={event => {
+                        setCity(event.target.value);
+                        setError("");
+                    }} />
                 <button type="submit">Find</button>
             </form>
 
-            <div className="card">
-                <h2 className="city-display">{data.name}</h2>
-                <p className="temp-display"></p>
-                <p className="humidity-display"></p>
-                <p className="desc-display"></p>
-                <p className="weather-emoji"></p>
-            </div>
+            {error && <p className="error-display">{error}</p>}
+
+            {weather && <div className="card">
+                <h2 className="city-display">{weather.name}, {weather.sys.country}</h2>
+                <p className="temp-display">{Math.floor((weather.main.temp - 273.15))}°C</p>
+                <p className="feels-temp-display">Feels Like: {Math.floor(weather.main.feels_like - 273.15)}°C</p>
+                <p className="humidity-display">Humidity: {weather.main.humidity}%</p>
+                <p className="desc-display">{weather.weather[0].description}</p>
+                <p className="weather-emoji">
+                    {getWeatherEmoji(weather.weather[0].id)}
+                </p>
+            </div>}
         </div>
-    )
+    );
 }
 
 export default WeatherApp
