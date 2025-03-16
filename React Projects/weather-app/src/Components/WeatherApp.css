@@ -1,8 +1,124 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@400;500;600;700;800&display=swap');
 
+:root{
+    --dark-clr: hsl(200, 100%, 10%);
+    --light-blue-clr: hsl(195, 53%, 79%);
+    --border-clr: hsla(195, 53%, 79%, 0.15);
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: min(2rem, 7%);
+    background-color: var(--dark-clr);
+}
+
+h1{
+    font-family: "Permanent Marker", sans-serif;
+    font-size: clamp(2rem, 0.75rem + 4vw, 3rem);
+    color: var(--light-blue-clr);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.weather-form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--border-clr);
+    border-radius: 50px;
+    min-width: 300px;
+}
+
+.weather-form input[type="text"]{
+    flex-grow: 1;
+    min-width: 0;
+    font-size: 1rem;
+    padding: .5rem 1.5rem;
+    border: 1.5px solid transparent;
+    border-radius: 50px 0 0 50px;
+    outline: none;
+    color: var(--light-blue-clr);
+    background: none;
+    overflow: hidden;
+}
+
+.weather-form input[type="text"]::placeholder{
+    color: var(--light-blue-clr);
+}
+
+.weather-form input[type="text"]:focus{
+    border: 1.5px solid var(--light-blue-clr);
+}
+
+.weather-form button{
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    border: 1.5px solid transparent;
+    padding: .5rem 1rem;
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+    background-color: var(--light-blue-clr);
+    fill: var(--dark-clr);
+}
+
+.error-display{
+    font-size: clamp(1rem, 0.375rem + 2vw, 1.5rem);
+    font-weight: 600;
+    background-color: var(--light-blue-clr);
+    color: var(--dark-clr);
+    padding: 1rem 2rem;
+    text-align: center;
+    margin-top: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px hsl(195, 53%, 79%);
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--light-blue-clr);
+    color: var(--dark-clr);
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px hsl(195, 53%, 79%);
+}
+
+.city-display {
+    font-size: clamp(1.5rem, 0.875rem + 2vw, 2rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.temp-display{
+    font-size: clamp(1.5rem, 0.875rem + 2vw, 2rem);
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+
+.humidity-display{
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.desc-display{
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.weather-emoji-display{
+    font-size: 5rem;
 }
