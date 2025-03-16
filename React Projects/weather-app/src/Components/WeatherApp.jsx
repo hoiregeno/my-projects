@@ -79,6 +79,7 @@ function WeatherApp() {
             {weather && <div className="card">
                 <h2 className="city-display">{weather.name}, {weather.sys.country}</h2>
                 <p className="temp-display">{Math.floor(weather.main.temp - 273.15)}°C</p>
+                <p className="feel-display">Feels Like {Math.floor(weather.main.feels_like - 273.15)}°C</p>
                 <p className="humidity-display">Humidity: {weather.main.humidity}%</p>
                 <p className="desc-display">{weather.weather[0].description}</p>
                 <p className="weather-emoji-display">{getWeatherEmoji(weather.weather[0].id)}</p>
