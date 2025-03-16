@@ -107,10 +107,15 @@ h1{
     margin-bottom: .5rem;
 }
 
+.feel-display{
+    font-size: .85rem;
+    margin-bottom: 1rem;
+}
+
 .humidity-display{
     font-size: 1.15rem;
     font-weight: 500;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
 }
 
 .desc-display{
